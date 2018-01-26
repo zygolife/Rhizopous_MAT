@@ -31,7 +31,7 @@ while(<>) {
     my ($sppref,$genename) = split(/\|/,$gene_name);
     #warn("sppref is $sppref\n");
     if ( ! exists $table{$sppref}->{$domain} ) { 
-	$table{$sppref}->{$domain} = $fullscore;
+	$table{$sppref}->{$domain} = sprintf("%s (%s %s)",$genename,$fullevalue,$fullscore);
     }    
 }
 print join("\t", qw(TAXON PREFIX), sort keys %seengenes),"\n";
